@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btnInstructions;
     private Button btnStart;
+   // private GameBoard board;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,4 +40,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(in);
         }
     }
+
 }

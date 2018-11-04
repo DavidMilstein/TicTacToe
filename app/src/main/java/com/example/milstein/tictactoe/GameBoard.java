@@ -1,3 +1,5 @@
+package com.example.milstein.tictactoe;
+
 public class GameBoard {
 
     public char [][] board;
