@@ -37,22 +37,22 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/instructions"
+            android:id="@+id/btnInsructionsID"
+            style="@android:style/Widget.Button.Inset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@android:style/Widget.Button.Inset"
             android:text="Instructions"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary" />
 
         <Button
-            android:id="@+id/start"
+            android:id="@+id/btnStartID"
+            style="@android:style/Widget.Button.Inset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@android:style/Widget.Button.Inset"
             android:text="start game"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary" />
     </LinearLayout>
 
     <TextView
