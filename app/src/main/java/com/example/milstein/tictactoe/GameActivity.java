@@ -167,6 +167,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         editor.putInt("lastDrawScore",currentDrawScore);
         editor.commit();
 
+
+
        // Log.d("debug", ">>>>>>>>>> onPause()");
     }
 }
