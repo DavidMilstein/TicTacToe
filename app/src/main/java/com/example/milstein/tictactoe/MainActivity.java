@@ -34,8 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         if(v.getId() == R.id.btnInsructionsID) {
-            Intent in = new Intent(this, InstructionsActivity.class);
-            startActivity(in);
+            btnInstructions.setText("yona");
+//            Intent in = new Intent(this, InstructionsActivity.class);
+//            startActivity(in);
+
         }
         else {
             Intent in = new Intent(this, GameActivity.class);
