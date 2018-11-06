@@ -80,6 +80,8 @@ public class GameActivity extends AppCompatActivity {
         editor.putInt("lastDrawScore",currentDrawScore);
         editor.commit();
 
+
+
        // Log.d("debug", ">>>>>>>>>> onPause()");
     }
 }
