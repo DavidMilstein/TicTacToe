@@ -62,49 +62,56 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             btn1.setText(this.player);
             btn1.setClickable(false);
             board.setPlayerAt(0, 0, this.player);
+            win = board.isWin();
         }
         else if(v.getId() == R.id.btnID2) {
             btn2.setText(this.player);
             btn2.setClickable(false);
             board.setPlayerAt(0,1, this.player);
+            win = board.isWin();
         }
         else if(v.getId() == R.id.btnID3) {
             btn3.setText(this.player);
             btn3.setClickable(false);
             board.setPlayerAt(0,2, this.player);
+            win = board.isWin();
         }
         else if(v.getId() == R.id.btnID4) {
             btn4.setText(this.player);
             btn4.setClickable(false);
             board.setPlayerAt(1,0, this.player);
+            win = board.isWin();
         }
         else if(v.getId() == R.id.btnID5) {
             btn5.setText(this.player);
             btn5.setClickable(false);
             board.setPlayerAt(1,1, this.player);
+            win = board.isWin();
         }
         else if(v.getId() == R.id.btnID6) {
             btn6.setText(this.player);
             btn6.setClickable(false);
             board.setPlayerAt(1,2, this.player);
+            win = board.isWin();
         }
         else if(v.getId() == R.id.btnID7) {
             btn7.setText(this.player);
             btn7.setClickable(false);
             board.setPlayerAt(2,0, this.player);
+            win = board.isWin();
         }
         else if(v.getId() == R.id.btnID8) {
             btn8.setText(this.player);
             btn8.setClickable(false);
             board.setPlayerAt(2,1, this.player);
+            win = board.isWin();
         }
         else if(v.getId() == R.id.btnID9) {
             btn9.setText(this.player);
             btn9.setClickable(false);
             board.setPlayerAt(2,2, this.player);
+            win = board.isWin();
         }
-        //call to the win function
-        win = board.isWin();
 
         //check win or draw
         if (win == "X") {
@@ -120,13 +127,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             btn7.setClickable(false);
             btn8.setClickable(false);
             btn9.setClickable(false);
+            win="n";
 
         }
         if (win == "O") {
             Toast.makeText(getApplicationContext(),"O win",Toast.LENGTH_SHORT).show();
+            turn.setText("O won!");
             currentOScore++;
             scoreO.setText(""+currentOScore);
-            turn.setText("O won!");
             btn1.setClickable(false);
             btn2.setClickable(false);
             btn3.setClickable(false);
@@ -136,18 +144,20 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             btn7.setClickable(false);
             btn8.setClickable(false);
             btn9.setClickable(false);
+            win="n";
         }
         if(win == "d"){
             Toast.makeText(getApplicationContext(),"DRAW",Toast.LENGTH_SHORT).show();
             turn.setText("DRAW!");
             currentDrawScore++;
             scoreDraw.setText(""+currentDrawScore);
+            win="n";
 
         }
         if(win == "n") {
             Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT).show();
         }
-        if(v.getId() != R.id.btnPlayAgainID) {
+        if(v.getId() != R.id.btnPlayAgainID && win!="X" && win!="O") {
             // swap player
 
             if (this.player == "X") {
@@ -159,9 +169,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         if(v.getId() == R.id.btnPlayAgainID){
+
+            win="n";
             this.player = "X";
             turn.setText(player + " turn");
             board=new GameBoard();
+
 //            int count=1;
 //            String btn = "btn"+count;
 //            for(int i=0; i<3; i++){
@@ -188,7 +201,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             btn7.setClickable(true);
             btn8.setClickable(true);
             btn9.setClickable(true);
-
         }
     }
 

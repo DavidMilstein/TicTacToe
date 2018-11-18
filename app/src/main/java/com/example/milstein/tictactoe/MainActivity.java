@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
     private Button btnInstructions;
     private Button btnStart;
    // private GameBoard board;
