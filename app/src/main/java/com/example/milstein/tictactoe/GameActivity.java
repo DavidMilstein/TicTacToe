@@ -7,18 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     private GameBoard board;
     private String player = "X";
-    private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
+    private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, restart;
     private String win="";
     private TextView turn, scoreX, scoreO, scoreDraw;
     //int countX=0, countO=0, countDraw=0;
     private int currentXScore, currentOScore, currentDrawScore;
-    private Button restart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,16 +103,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             btn9.setClickable(false);
             board.setPlayerAt(2,2, this.player);
         }
-
-        if(v.getId() == R.id.btnID1 || v.getId() == R.id.btnID2 || v.getId() == R.id.btnID3 || v.getId() == R.id.btnID4 || v.getId() == R.id.btnID5|| v.getId() == R.id.btnID6 || v.getId() == R.id.btnID7 || v.getId() == R.id.btnID8 || v.getId() == R.id.btnID9  ) {// swap player
-            if (this.player == "X") {
-                this.player = "O";
-                turn.setText(player + " turn");
-            } else {
-                this.player = "X";
-                turn.setText(player + " turn");
-            }
-        }
         //call to the win function
         win = board.isWin();
 
@@ -120,21 +111,84 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             currentXScore++;
             scoreX.setText(""+currentXScore);
             turn.setText("X won!");
+            btn1.setClickable(false);
+            btn2.setClickable(false);
+            btn3.setClickable(false);
+            btn4.setClickable(false);
+            btn5.setClickable(false);
+            btn6.setClickable(false);
+            btn7.setClickable(false);
+            btn8.setClickable(false);
+            btn9.setClickable(false);
 
         }
         if (win == "O") {
+            Toast.makeText(getApplicationContext(),"O win",Toast.LENGTH_SHORT).show();
             currentOScore++;
             scoreO.setText(""+currentOScore);
             turn.setText("O won!");
+            btn1.setClickable(false);
+            btn2.setClickable(false);
+            btn3.setClickable(false);
+            btn4.setClickable(false);
+            btn5.setClickable(false);
+            btn6.setClickable(false);
+            btn7.setClickable(false);
+            btn8.setClickable(false);
+            btn9.setClickable(false);
         }
         if(win == "d"){
+            Toast.makeText(getApplicationContext(),"DRAW",Toast.LENGTH_SHORT).show();
+            turn.setText("DRAW!");
             currentDrawScore++;
             scoreDraw.setText(""+currentDrawScore);
-            turn.setText("DRAW!");
-        }
 
+        }
+        if(win == "n") {
+            Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT).show();
+        }
+        if(v.getId() != R.id.btnPlayAgainID) {
+            // swap player
+
+            if (this.player == "X") {
+                this.player = "O";
+                turn.setText(player + " turn");
+            } else {
+                this.player = "X";
+                turn.setText(player + " turn");
+            }
+        }
         if(v.getId() == R.id.btnPlayAgainID){
+            this.player = "X";
+            turn.setText(player + " turn");
             board=new GameBoard();
+//            int count=1;
+//            String btn = "btn"+count;
+//            for(int i=0; i<3; i++){
+//                for(int j=0; j<3; j++){
+//                    removeText(btn);
+//
+//                }
+//            }
+            btn1.setText(" ");
+            btn2.setText(" ");
+            btn3.setText(" ");
+            btn4.setText(" ");
+            btn5.setText(" ");
+            btn6.setText(" ");
+            btn7.setText(" ");
+            btn8.setText(" ");
+            btn9.setText(" ");
+            btn1.setClickable(true);
+            btn2.setClickable(true);
+            btn3.setClickable(true);
+            btn4.setClickable(true);
+            btn5.setClickable(true);
+            btn6.setClickable(true);
+            btn7.setClickable(true);
+            btn8.setClickable(true);
+            btn9.setClickable(true);
+
         }
     }
 
@@ -158,7 +212,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     protected void onPause()
     {
         super.onPause();
-
         // save data (games result) into sheardPrefrences
         SharedPreferences sp = getSharedPreferences("MyPref" , Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
@@ -171,4 +224,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
        // Log.d("debug", ">>>>>>>>>> onPause()");
     }
+
+//    public void unclickButton(Button btn)
+//    {
+//        btn.setClickable(false);
+//    }
+//
+//    public void clickableButton(Button btn)
+//    {
+//        btn.setClickable(true);
+//    }
+//    public void removeText(Button btn){
+//        btn.setText(" ");
+//    }
+
 }

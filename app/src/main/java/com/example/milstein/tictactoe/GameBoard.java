@@ -3,8 +3,10 @@ package com.example.milstein.tictactoe;
 public class GameBoard {
 
     public String [][] board;
-    int flag=0;
+    private int DrawCount;
+    private int flag=0;
 
+    // make new (clear) board
     public GameBoard() {
         int countInt =1;
         String count = "" + countInt;
@@ -55,14 +57,24 @@ public class GameBoard {
             return board[0][2];
 
         //check if there is draw
+//        for(int i=0; i<3; i++){
+//            for(int j=0; j<3; j++) {
+//                if (this.board[i][j] == "X" || this.board[i][j] == "O")
+//                    DrawCount++;
+//            }
+
         for(int i=0; i<3; i++){
             for(int j=0; j<3; j++) {
-                if (this.board[i][j] != "X" && this.board[i][j] != "O")
-                    flag=1;
+                if (this.board[i][j] != null)
+                    DrawCount++;
             }
         }
-        if(flag==1)
+
+
+
+        if(DrawCount == 9)
+            return "d";
+        else
             return "n";
-        return "d";
     }
 }
