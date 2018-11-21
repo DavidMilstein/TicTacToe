@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnInstructions.setOnClickListener(this);
         btnStart.setOnClickListener(this);
 
-
     }
 
 
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.btnInsructionsID) {
             Intent in = new Intent(this, InstructionsActivity.class);
             startActivity(in);
-
         }
         else {
             Intent in = new Intent(this, GameActivity.class);

@@ -174,15 +174,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             this.player = "X";
             turn.setText(player + " turn");
             board=new GameBoard();
-
-//            int count=1;
-//            String btn = "btn"+count;
-//            for(int i=0; i<3; i++){
-//                for(int j=0; j<3; j++){
-//                    removeText(btn);
-//
-//                }
-//            }
             btn1.setText(" ");
             btn2.setText(" ");
             btn3.setText(" ");
